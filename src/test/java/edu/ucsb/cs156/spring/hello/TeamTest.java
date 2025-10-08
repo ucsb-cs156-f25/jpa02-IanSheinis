@@ -34,6 +34,19 @@ public class TeamTest {
         assertFalse(team.equals(other), "setup team should not equal other team");
         assertFalse(team.equals("object"), "setup team should not equal other object");
         assertFalse(other.equals(team), "other team should not equal team obj");
+        Team t1 = new Team();
+        t1.setName("foo");
+        t1.addMember("bar");
+        Team t2 = new Team();
+        t2.setName("foo");
+        t2.addMember("bar");
+        assertTrue(t1.equals(t2), "t1 = t2");
+        t2.addMember("hi");
+        assertFalse(t1.equals(t2), "t1!=t2");
+        Team t3 = new Team("j");
+        Team t4 = new Team("j");
+        Team t5 = new Team("z");
+        assertFalse(t5.equals(t4));
 
     }
 
